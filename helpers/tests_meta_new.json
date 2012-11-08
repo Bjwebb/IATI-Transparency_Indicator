@@ -1,0 +1,212 @@
+{
+  "test": {
+    "1.1": {
+      "Information Area": "Timeliness",
+      "Max score": "4",
+      "Purpose": "To assess both how frequently data is updated and how timely the data are. This is done by analysing financial transactions.",
+      "Scoring method": "If on the last day of four of the past six months, the most recent transaction date in any activity is less than one month in arrears, 4 is scored. OR If less than a quarter in arrears 3 is scored, OR 2 if less than six months in arrears.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Every night the Registry will trawl all registered datasets and stores the most recent transaction date on any activity. The end of month value is also stored for the past six months.",
+      "xml elements used": "iati-activity\\transaction\\transaction-date"
+    },
+    "1.2": {
+      "Information Area": "Strategic planning",
+      "Max score": "2",
+      "Purpose": "To assess the provision of forward looking data on country-level budgets.",
+      "Scoring method": "If country budgets exist for 50% of all countries in which the publisher reports activities: score 2 if budgets exist for the next two years or more; OR score 1 if budgets exist for the next year only.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Total number of countries is calculated from publisher's reporting to the activity standard. Year is calculated from the date of assessment. 50% applied as donor may produce country budgets only for main partners",
+      "xml elements used": "iati-organisation\\recipient-country-budget"
+    },
+    "1.3": {
+      "Information Area": "Activity Planning",
+      "Max score": "2",
+      "Purpose": "To assess the provision of activity-level forward looking financial data.",
+      "Scoring method": "Score 2 if 50% of current activities contain either budgets or planned disbursements covering a period beyond the current date.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "A current activity is calculated from the activity status or from the planned or actual end date. 50% applied as not all activities lend themselves to forward budgeting.",
+      "xml elements used": "iati-activity\\budget; iati-activity\\planned-disbursement"
+    },
+    "1.4": {
+      "Information Area": "Alignment with Recipient Financial Year",
+      "Max score": "3",
+      "Purpose": "To assess whether financial data can be aligned and incorporated into recipient country's fiscal year and planning cycles.",
+      "Scoring method": "If financial transactions are aggregated no more than quarterly score 1 AND if budgets or planned disbursements are reported at least quarterly score 2 OR if reported annually score 1",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "The only way to be sure that financial data can be aligned with most recipients' fiscal years and planning cycles is to provide no more than quarterly aggregations.",
+      "xml elements used": "iati-activity\\transaction\\transaction-date, iati-activity\\budget, iati-activity\\planned-disbursement"
+    },
+    "2.1": {
+      "Information Area": "Unique identifier",
+      "Max score": "1",
+      "Purpose": "To check that activities are defined by globally unique identifiers",
+      "Scoring method": "Score 1 if 95% of activities contain an identifier AND that it is unique for the publisher",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Uniqueness is checked against all of a publisher's activities, not just a single file.",
+      "xml elements used": "iati-activity\\iati-identifier",
+      "threashold":95, 
+      "score":1
+    },
+    "2.2": {
+      "Information Area": "Use of Recipient language",
+      "Max score": "1",
+      "Purpose": "To check that recipient countries are able to identify activities by their title or description in a language that they understand.",
+      "Scoring method": "Score only those activities that take place in countries where the official language of the country is different from the publisher's default language. Score 1 if 50% of such activities contain a language attribute in the title or description that is different from the publisher's default language.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Activities with multiple or no recipient country are excluded from the calculation, as are activities where the language of the publisher and the recipient is the same. Currently checks are made against English, French, Spanish and Portuguese only.",
+      "xml elements used": "iati-activity\\@xml:lang, iati-activity\\recipient-country\\@code, iati-activity\\title\\@xml:lang, iati-activity\\description\\@xml:lang",
+      "threashold":50, 
+      "score":1
+    },
+    "2.3": {
+      "Information Area": "Start Date",
+      "Max score": "1",
+      "Purpose": "To check timeline",
+      "Scoring method": "Score 1 if planned-start or actual-start activity date is present in 95% of activities ",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "",
+      "xml elements used": "iati-activity\\activity-date",
+      "threashold":95, 
+      "score":1
+    },
+    "2.4": {
+      "Information Area": "End Date",
+      "Max score": "1",
+      "Purpose": "To check timeline",
+      "Scoring method": "Score 1 if planned-end or actual-end activity date is present in 75% of activities ",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "75% threshold to allow for pipeline and programme activities with no end date.",
+      "xml elements used": "iati-activity\\activity-date",
+      "threashold":75, 
+      "score":1
+    },
+    "2.5": {
+      "Information Area": "Implementing Organisation",
+      "Max score": "1",
+      "Purpose": "To check information is provided on which organisation is implementing the activity",
+      "Scoring method": "Score 1 if an implementing organisation is present in 50% of activities",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "50% threshold to allow for activities not requiring direct implementation",
+      "xml elements used": "iati-activity\\participating-org\\@role",
+      "threashold":50, 
+      "score":1
+    },
+    "2.6": {
+      "Information Area": "Accountable Organisation",
+      "Max score": "1",
+      "Purpose": "To check information is provided on which organisation is accountable for the activity",
+      "Scoring method": "Score 1 if an accountable organisation is present in 33% of activities",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Primarily required for on-budget activities. 33% threshold reflects this.",
+      "xml elements used": "iati-activity\\participating-org\\@role",
+      "threashold":33, 
+      "score":1
+    },
+    "3.1.1": {
+      "Information Area": "Sub-national Geography (location)",
+      "Max score": "2",
+      "Purpose": "To assess if information is provided on the sub-national geographical location of the activity",
+      "Scoring method": "Score 2 if 50% of activities contain either geographical coordinates or administrative area information OR score 1 if 50% of activities contain free text location descriptions",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "50% threshold is to reflect that not all activities can be geo-coded and to encourage publishers to begin including location data where they can",
+      "xml elements used": "iati-activity\\location\\coordinates, iati-activity\\location\\administrative, iati-activity\\location\\description",
+      "threashold":50, 
+      "score":1
+    },
+    "3.1.2": {
+      "Information Area": "Sub-national Geography (additional)",
+      "Max score": "2",
+      "Purpose": "To assess if information is provided on the sub-national geographical location of the activity",
+      "Scoring method": "Score 2 if 50% of activities contain either geographical coordinates or administrative area information OR score 1 if 50% of activities contain free text location descriptions",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "50% threshold is to reflect that not all activities can be geo-coded and to encourage publishers to begin including location data where they can",
+      "xml elements used": "iati-activity\\location\\coordinates, iati-activity\\location\\administrative, iati-activity\\location\\description",
+      "threashold":50, 
+      "score":1
+    },
+    "3.2": {
+      "Information Area": "CRS Sector",
+      "Max score": "1",
+      "Purpose": "To check if information is provided on the sector benefiting from the activity ",
+      "Scoring method": "Score 1 if 95% of activities contain CRS sector codes",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "",
+      "xml elements used": "iati-activity\\sector",
+      "threashold":95, 
+      "score":1
+    },
+    "4.1": {
+      "Information Area": "Economic Classification",
+      "Max score": "1",
+      "Purpose": "To check that the distinction between capital and recurrent expenditure can be made for budget planning purposes",
+      "Scoring method": "Score 1 if 95% of activities contain economic classification element",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Item still to be agreed by IATI Steering Committee",
+      "xml elements used": ""
+    },
+    "4.2": {
+      "Information Area": "Link to recipient budget classification",
+      "Max score": "1",
+      "Purpose": "To check that the common code proxy for the budget classification exists which allows the alignment of all activities (both on and off-budget) with the budget planning purposes",
+      "Scoring method": "Score 1 if 95% of activities contain the common code budget classification element",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Item still to be agreed by IATI Steering Committee",
+      "xml elements used": ""
+    },
+    "5.1": {
+      "Information Area": "Commitments",
+      "Max score": "1",
+      "Purpose": "To check that the total committed or planned cost of an activity is recorded",
+      "Scoring method": "Score 1 if 95% of activities contain a transaction with type \"Commitment\"",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Commitments should not only be filled out by donors. Implementing agencies should report the total activity budget as a commitment.",
+      "xml elements used": "iati-activity\\transaction\\transaction-type",
+      "threashold":95, 
+      "score":1
+    },
+    "5.2": {
+      "Information Area": "Disbursements and Expenditure",
+      "Max score": "1",
+      "Purpose": "To check that disbursements and\/or expenditures are being recorded at activity level",
+      "Scoring method": "Score 1 if 75% of activities contain a transaction with type \"Disbursement\" or \"Expenditure\"",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "75% threshold allows for new activities which have not yet reported outgoings.",
+      "xml elements used": "iati-activity\\transaction\\transaction-type",
+      "threashold":75, 
+      "score":1
+    },
+    "5.3": {
+      "Information Area": "Traceability",
+      "Max score": "2",
+      "Purpose": "To assess the ability of funds to be traced down the aid delivery chain",
+      "Scoring method": " Score 2 if 75% of \"Disbursement\" and \"Incoming Funds\" transactions  contain information on a receiver organisation or  provider organisation respectively OR score only 1 if the above conditions are met in 50% of cases.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "Ideally the activity identifier of the respective provider or receiver organisation should be provided, but the indicator scores on any available information - even a name without an organisation identifier. 75% and 50% threshold to reflect that not all transactions will record these  data",
+      "xml elements used": "iati-activity\\transaction\\provider-org, iati-activity\\transaction\\receiver-org"
+    },
+    "6.1": {
+      "Information Area": "Activity Documents",
+      "Max score": "1",
+      "Purpose": "To check whether additional activity documentation is provided",
+      "Scoring method": "Score 1 if 75% of activities contain a link to a published document OR a dedicated web page.",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "75% threshold to allow that documentation may not be published for smaller activities",
+      "xml elements used": "iati-activity\\document-link, iati-activity\\activity-website",
+      "threashold":75, 
+      "score":1
+    },
+    "6.2": {
+      "Information Area": "Text of Conditions",
+      "Max score": "1",
+      "Purpose": "To check whether the terms of conditions are published where applicable.",
+      "Scoring method": "Score 1 if 75% of activities that record that conditions are attached ALSO record the terms of the conditions OR record conditions attached as \"No\"",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "If no conditions are attached publishers need to report this proactively as a \"No\". If the element is not reported publishers will not score on this, even if they do not apply any conditions. 75% threshold to encourage donors to start publishing conditions as text",
+      "xml elements used": "iati-activity\\conditions\\@attached, iati-activity\\conditions\\condition",
+      "threashold":75, 
+      "score":1
+    },
+    "6.3.1": {
+      "Information Area": "Results data",
+      "Max score": "2",
+      "Purpose": "To assess reporting on results",
+      "Scoring method": "Score 2 if 33% of activities contain a results indicator element OR score 1 if 33% of activities contain a populated results element without indicator details. ",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "33% threshold is to encourage publishers to start reporting results where possible.",
+      "xml elements used": "iati-activity\\results\\indicator, iati-activity\\results",
+      "notes":"Simplify: test for iati-activity\\resultr",
+      "threashold":33, 
+      "score":1
+    },
+    "6.3.2": {
+      "Information Area": "Results data (indicator)",
+      "Max score": "2",
+      "Purpose": "To assess reporting on results",
+      "Scoring method": "Score 2 if 33% of activities contain a results indicator element OR score 1 if 33% of activities contain a populated results element without indicator details. ",
+      "Notes(except where otherwise noted, a 95% cut-off is used to avoid distorting scores due to minor exceptions)": "33% threshold is to encourage publishers to start reporting results where possible.",
+      "xml elements used": "iati-activity\\results\\indicator, iati-activity\\results",
+      "notes":"Simplify: test for iati-activity\\result\\indicator",
+      "threashold":33, 
+      "score":1
+    }
+  }
+}
