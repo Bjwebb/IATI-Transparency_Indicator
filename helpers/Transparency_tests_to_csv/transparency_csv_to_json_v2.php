@@ -21,15 +21,16 @@
  */
 
 
-include("../functions/pretty_json.php");
+include("../../functions/pretty_json.php");
 $row = 0;
 
-  if (($handle = fopen("Transparency_Indicator.csv", "r")) !== FALSE) {
+  if (($handle = fopen("Transparency_Indicator_v2.csv", "r")) !== FALSE) {
       while (($data = fgetcsv($handle, 1000, ';','"')) !== FALSE) { //expecting semicolon as the delimiter
           $num = count($data) -1;
+          //Gets the column headers from the spreadsheet (on the second row)
           if($row == 1) {
             $columns = $data;
-            array_shift($columns);
+            array_shift($columns); //We don't want the ID column in our headers
           }
           $row++;
           //echo "<p> $num fields in line $row: <br /></p>\n";
@@ -50,8 +51,8 @@ $row = 0;
   }
 //print_r($tests);
 $tests = json_encode($tests);
-$tests = json_format($tests);
-file_put_contents("test_meta_new.json",$tests);
+//$tests = json_format($tests);
+file_put_contents("test_meta_new_v2.json",$tests);
 //echo $tests;
 
 //Thanks Boylett http://php.net/manual/en/function.is-float.php
