@@ -4,7 +4,8 @@ Some o fthis stuff needs to be processed manually every now and again:
 
 publisher_mapping..
 dac_codelists...
-are both csv files taken directly from spreadsheets
+are both csv files taken directly from spreadsheets. 
+Publisher mapping does get manual updates as well. 
 
 country_lang_map
 is generated in the /Country_Lang_Mapping directory. 

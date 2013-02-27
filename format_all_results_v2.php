@@ -123,15 +123,59 @@ foreach ($group_types as $type) {
                 if ($key == "6.3.1") {
                   $key = "6.3";
                 }*/
+                if ($key == "2.1") {
+                  $data["test1.5"][] = "1.5";
+                }
                 $data["test".$key][] = $value['Information Area'];
                 echo $value->{'Information Area'};
                   //$i++;
               }
+              //$data["test1.5"][] = "";
               $data["testGap"][] = "";
               $data["testHierarchy"][] ="Hierarchy";
               
+              
+              //test Number Column
+              $data["title"][] = "Test";
+              //$i=1;
+              foreach ($json['test'] as $key=>$value) {
+                
+               switch ($key) {
+                  case "2.1":
+                    $data["test1.5"][] = "1.5";
+                    $test_id = "2.1";
+                    break;
+                  case "3.1.1":
+                    $test_id = "3.1";
+                    break;
+                  case "3.1.2":
+                    $test_id = "3.2";
+                    break;
+                  case "3.2":
+                    $test_id = "3.3";
+                    break;
+                  case "6.3.1":
+                    $test_id = "6.3";
+                    break;
+                  case "6.3.2":
+                    $test_id = "6.4";
+                    break;
+                  default;
+                    $test_id = $key;
+                    break;
+                }
+                 
+                $data["test".$key][] = $test_id;
+                //echo $value->{'Information Area'};
+                  //$i++;
+              }
+              
+              $data["testGap"][] = "";
+              $data["testHierarchy"][] ="";
+              
+              
  //Put in aggregate data
-  
+  $data["column-header"][] = "";
   $data["column-header"][] = "Signatories";
   $data["column-header"][] = "Other";
   $data["column-header"][] = "All";
@@ -149,12 +193,14 @@ foreach ($group_types as $type) {
      if  ($results_data[0] != "id" ) {
         //$data["test" . $results_data[0] ][] = $results_data[4]; //total
         // $data["test" . $results_data[0] ][] = $results_data[19]; //signatories
+        //$data["test" . $results_data[0] ][] = ""; //empty column
         $data["test" . $results_data[0] ][] = $results_data[4]; //signatories
         $data["test" . $results_data[0] ][] = $results_data[7]; //other
         $data["test" . $results_data[0] ][] = $results_data[10]; //All
         if  ($results_data[0] == "2.1" ) {
           //$data["totals"][] = $results_data[2];
           //$data["totals"][] = $results_data[17];
+          $data["totals"][] = "";
           $data["totals"][] = $results_data[2];
           $data["totals"][] = $results_data[5];
           $data["totals"][] = $results_data[8];
@@ -224,6 +270,7 @@ foreach ($group_types as $type) {
               $data["test1.2"][] = "";
               $data["test1.3"][] = "";
               $data["test1.4"][] = "";
+              $data["test1.5"][] = "";
               $data["test2.1"][] = $json->tests->{"2.1"}->percentage;
               $data["test2.2"][] = $json->tests->{"2.2"}->percentage;
               $data["test2.3"][] = $json->tests->{"2.3"}->percentage;

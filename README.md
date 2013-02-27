@@ -43,6 +43,15 @@ Settings
 Copy `example.settings.php` to `settings.php` and then edit the options.  
 Create your `results` directory to store your results in.
 
+Check your 'helper' files are up to date
+----------------------------------------
+The files under /helpers are additional external pre-calculated data files required to do things like:
+map publisher id's to real names
+map languages to countries
+define the tests to be used.
+
+You should check that they are up to date before you use them.
+
 Run the scripts
 ---------------
 
@@ -57,9 +66,13 @@ Run the tests in the following order:
 * `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv
 * `transaprency_test_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated
 N.B. There is one more test required to run the full suite. This is a test on the file updates based on the CKAN registry records.
-Note to self. This is run from the `aidinfo-data/backend/run-daily/history*` scripts - not in this code base yet.
-history-maker.php grabs the data
-history-assessment.php makes the judgement on how often data is updated.
+Make sure you have create a `./history` directory
+* `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.
+ history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv
+run:
+* `history_assesment.php > csv/Timeliness_Files_1.2.csv` - !NB the name of this output file is important!
+Finally run:
+* `Final_Results_Sheet.php` puts everything above into 2 csv files, one for Signatories, one for Others.
 
 /contrib
 --------
