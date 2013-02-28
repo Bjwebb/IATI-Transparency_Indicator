@@ -42,8 +42,11 @@ Settings
 --------
 Copy `example.settings.php` to `settings.php` and then edit the options.  
 Create your `results` directory to store your results in.
-You will also need to create a `csv` directory, and a 
-`history` directory to save partial results in.
+You will also need to create:
+* `csv` directory - to save your results in.
+* `history` directory - to save partial results in.
+* `helpers/CKAN_meta/tmp` directory - to store some temporary data
+* `helpers/CKAN_meta/CKAN_data` directory - to store location information about files on the registry
 
 Check your 'helper' files are up to date
 ----------------------------------------
@@ -67,21 +70,24 @@ Run the tests in the following order:
 * `format_overview_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:
 * `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv
 * `transaprency_test_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated
-N.B. There is one more test required to run the full suite. This is a test on the file updates based on the CKAN registry records.
+
+The final test is on the file updates based on the CKAN registry records.
 First you need to create some meta data about the records on the CKAN registry.
-`cd /helpers/CKAN_meta`
+`cd helpers/CKAN_meta`
 make sure you have two directories there:
-`tmp`
-`CKAN_data`
+`tmp` - should be at `helpers/CKAN_meta/tmp`
+`CKAN_data` - should be at `helpers/CKAN_meta/CKAN_data`
 
-Run `php ckan_records_metadata.php`
+Run `php ckan_records_metadata.php` - this grabs CKAN data about each file on the Registry and stores it for us. We need this data so we can then fetch the file change history on each one.
 
-Next
-Make sure you have created a `./history` directory
+Next:
+Back in the top level directory, make sure you have created a `./history` directory
 * `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.
  history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv
 run:
 * `history_assesment.php > csv/Timeliness_Files_1.2.csv` - !NB the name of this output file is important!
+
+
 Finally run:
 * `Final_Results_Sheet.php` puts everything above into 2 csv files, one for Signatories, one for Others.
 
