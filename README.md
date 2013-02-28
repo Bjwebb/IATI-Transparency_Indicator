@@ -29,8 +29,8 @@ Getting Started
 Checkout the scripts
 --------------------
 
-Get some data:
-You can fetch data from the IATI Registry (iatiregistry.org).  
+Get some data:  
+You can fetch data from the IATI Registry (iatiregistry.org).   
 Store each publishers data in it's own directory, which is itself inside a 'data' directory.  
 e.g.  
 `raw_IATI_xml_data/`  
@@ -41,8 +41,8 @@ and so on.
 Settings
 --------
 Copy `example.settings.php` to `settings.php` and then edit the options.  
-Create your `results` directory to store your results in.
-You will also need to create:
+Create your `results` directory to store your results in.  
+You will also need to create:  
 * `csv` directory - to save your results in.
 * `history` directory - to save partial results in.
 * `helpers/CKAN_meta/tmp` directory - to store some temporary data
@@ -50,10 +50,10 @@ You will also need to create:
 
 Check your 'helper' files are up to date
 ----------------------------------------
-The files under /helpers are additional external pre-calculated data files required to do things like:
-map publisher id's to real names
-map languages to countries
-define the tests to be used.
+The files under /helpers are additional external pre-calculated data files required to do things like:  
+* map publisher id's to real names  
+* map languages to countries  
+* define the tests to be used  
 
 You should check that they are up to date before you use them.
 
@@ -65,35 +65,35 @@ Using `php_cli`  e.g.
 
 Functional Notes
 ----------------
-Run the tests in the following order:
-* `transparency_test.php` - will generate a json file of data giving counts, scores and percentages, etc for a data publisher against their IATI data files.
-* `format_overview_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:
-* `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv
-* `transaprency_test_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated
+Run the tests in the following order:  
+* `transparency_test.php` - will generate a json file of data giving counts, scores and percentages, etc for a data publisher against their IATI data files.  
+* `format_overview_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:  
+* `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv  
+* `transaprency_test_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated  
 
-The final test is on the file updates based on the CKAN registry records.
-First you need to create some meta data about the records on the CKAN registry.
-`cd helpers/CKAN_meta`
-make sure you have two directories there:
-`tmp` - should be at `helpers/CKAN_meta/tmp`
-`CKAN_data` - should be at `helpers/CKAN_meta/CKAN_data`
+The final test is on the file updates based on the CKAN registry records.  
+First you need to create some meta data about the records on the CKAN registry.  
+`cd helpers/CKAN_meta`  
+make sure you have two directories there:  
+`tmp` - should be at `helpers/CKAN_meta/tmp`  
+`CKAN_data` - should be at `helpers/CKAN_meta/CKAN_data`  
 
-Run `php ckan_records_metadata.php` - this grabs CKAN data about each file on the Registry and stores it for us. We need this data so we can then fetch the file change history on each one.
+Run `php ckan_records_metadata.php` - this grabs CKAN data about each file on the Registry and stores it for us. We need this data so we can then fetch the file change history on each one.  
 
-Next:
-Back in the top level directory, make sure you have created a `./history` directory
-* `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.
- history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv
-run:
-* `history_assesment.php > csv/Timeliness_Files_1.2.csv` - !NB the name of this output file is important!
+Next:  
+Back in the top level directory, make sure you have created a `./history` directory  
+* `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.  
+ history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv  
+run:  
+* `history_assesment.php > csv/Timeliness_Files_1.2.csv` - !NB the name of this output file is important!  
 
 
-Finally run:
-* `Final_Results_Sheet.php` puts everything above into 2 csv files, one for Signatories, one for Others.
+Finally run:  
+* `Final_Results_Sheet.php` puts everything above into 2 csv files, one for Signatories, one for Others.  
 
 /contrib
 --------
-This directory contains a number of one off scripts that can be run by `php_cli` and should be output to csv.
+This directory contains a number of one off scripts that can be run by `php_cli` and should be output to csv.  
 Move the script into the root directory first.
 
 Out dated formats:
