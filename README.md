@@ -42,6 +42,8 @@ Settings
 --------
 Copy `example.settings.php` to `settings.php` and then edit the options.  
 Create your `results` directory to store your results in.
+You will also need to create a `csv` directory, and a 
+`history` directory to save partial results in.
 
 Check your 'helper' files are up to date
 ----------------------------------------
@@ -66,7 +68,16 @@ Run the tests in the following order:
 * `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv
 * `transaprency_test_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated
 N.B. There is one more test required to run the full suite. This is a test on the file updates based on the CKAN registry records.
-Make sure you have create a `./history` directory
+First you need to create some meta data about the records on the CKAN registry.
+`cd /helpers/CKAN_meta`
+make sure you have two directories there:
+`tmp`
+`CKAN_data`
+
+Run `php ckan_records_metadata.php`
+
+Next
+Make sure you have created a `./history` directory
 * `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.
  history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv
 run:

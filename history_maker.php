@@ -7,8 +7,8 @@
  * Add logs
  * Only update recently updated files
  */
+$CKAN_data_directory = "helpers/CKAN_meta/CKAN_data";
  
-$CKAN_data_directory = "../CKAN_data";
 $year = date("Y");
 $files = scandir($CKAN_data_directory . "/" . $year . "/");
 $most_recent_day_dir = array_pop($files);
