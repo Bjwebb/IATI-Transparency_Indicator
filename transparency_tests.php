@@ -595,7 +595,7 @@ function count_attributes($dir) { //sorry about the silly name. Legacy code!
                         if ($hierarchy && $hierarchy !=NULL) {
                           $hierarchy = (string)$activity->attributes()->hierarchy;
                         } else {
-                          $hierarchy = 0;
+                          $hierarchy = 1;
                         }
                         $found_hierarchies[] = $hierarchy; 
                         if (!isset($no_activities[$hierarchy])) {

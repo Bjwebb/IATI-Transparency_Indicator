@@ -98,9 +98,10 @@ function add_data_to_master($file,$master_file,$row,$column) {
         //For each provider column we need to add the correct data..
         //from the file containing the results
         if (($handle = fopen("csv/" . $file, "r")) !== FALSE) {
+          //echo $file; die;
           $results_row1 = fgetcsv($handle, 0, ',','"'); // read and store the first line
           //Timeliness_Transactions_1.1.csv - has column headings on row2
-          if ($file == $dir_to_csvs . "Timeliness_Transactions_1.1.csv") {
+          if ($file == $dir_to_csvs . "Timeliness_Transactions_1.1.csv" ) {
             $results_row1 = fgetcsv($handle, 0, ',','"'); // read and store the first line
           }
           //print_r($results_row1);die;
@@ -120,6 +121,7 @@ function add_data_to_master($file,$master_file,$row,$column) {
                 $column_number = $key; //so now we know which column to store the data in
                 //buut what data?
                 //grab it from
+                //echo $column_number; die;
                 foreach ($results_row1 as $key2=>$value) { //e.g. $row1[0] = projectid
                   if (trim($value) == $column) { //we've found the column we need
                     //Store it in the file

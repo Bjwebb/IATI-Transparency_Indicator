@@ -19,7 +19,8 @@ die;
 
 echo "Provider,No. Activities,No. w/Transactions,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,Sum Months,Transact Dates,Transacts,Q1,Q2,Q3,Q4,Sum,Q Count, Assessment". PHP_EOL;
 error_reporting(0);
-$dir = '../raw_IATI_xml_data/'; //contains dirs with each providers data in it - named by group name on registry
+//$dir = '../raw_IATI_xml_data/'; //contains dirs with each providers data in it - named by group name on registry
+include ('settings.php'); //sets $dir
 $dirs = scandir($dir); //all the folders in our directory holding the data
 unset($dirs[0]); // unset the . value
 unset($dirs[1]); //unset the .. value
@@ -170,7 +171,7 @@ function format_transaction_results ($corpus,$activities,$activities_with_transa
   } elseif (count(array_keys($quater)) == 4) {
     $assessment = "Quaterly";
   } else {
-    $assessment = "Anually";
+    $assessment = "Annually";
   }
   
   echo $assessment; echo ",";

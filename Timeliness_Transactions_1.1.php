@@ -13,7 +13,8 @@ echo ",Activities,,,,,,,,,Transactions,,,,,,". PHP_EOL;
 
 echo "Provider,No. Activities,No. w/Transactions,1,2,3,6,12,future,other,1,2,3,6,12,future,other,Sum of array values,Transact Dates,Transacts,Assessment". PHP_EOL;
 error_reporting(0);
-$dir = '../raw_IATI_xml_data/'; //contains dirs with each providers data in it - named by group name on registry
+//$dir = '../raw_IATI_xml_data/'; //contains dirs with each providers data in it - named by group name on registry
+include ('settings.php'); //sets $dir
 $dirs = scandir($dir); //all the folders in our directory holding the data
 unset($dirs[0]); // unset the . value
 unset($dirs[1]); //unset the .. value

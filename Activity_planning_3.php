@@ -10,7 +10,8 @@
 error_reporting(0);
 echo "Provider,Hierarchy,All Open Activities,Good Activities,%,Open but period-end check fails,Open but no budget,Difference between All Open and Good, Sum of Fails" . PHP_EOL;
 
-$dir = '../raw_IATI_xml_data/';
+//$dir = '../raw_IATI_xml_data/';
+include ('settings.php'); //sets $dir
 $dirs = scandir($dir); //all the folders in our directory holding the data
 unset($dirs[0]); // unset the . value
 unset($dirs[1]); //unset the .. value

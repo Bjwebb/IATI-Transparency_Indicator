@@ -10,7 +10,8 @@
 error_reporting(0);
 echo "Provider,Activities w/ budgets,Passing Activities,%,Budgets Counted,Passing Budgets,%,Mean Spread,Median Spread, Mode Spread, Spread Range,Assessment" . PHP_EOL;
 
-$dir = '../raw_IATI_xml_data/';
+//$dir = '../raw_IATI_xml_data/';
+include ('settings.php'); //sets $dir
 $dirs = scandir($dir); //all the folders in our directory holding the data
 unset($dirs[0]); // unset the . value
 unset($dirs[1]); //unset the .. value
