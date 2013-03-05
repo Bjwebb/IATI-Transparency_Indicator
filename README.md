@@ -84,7 +84,7 @@ Then, in the `CKAN_meta` directory, run
 Next:  
 Back in the top level directory, make sure you have created a `./history` directory  
 * `history_maker.php` grabs the data - this can take quite a while as it needs to pull every file from the CKAN webservice.  
- history-assessment.php makes the judgement on how often data is updated and saves it in a file called history.csv  
+ `history_assessment.php` makes the judgement on how often data is updated and saves it in a file called history.csv  
 run:  
 * `history_assesment.php > csv/Timeliness_Files_1.2.csv` - !NB the name of this output file is important!  
 
