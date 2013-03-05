@@ -66,10 +66,10 @@ Using `php_cli`  e.g.
 Functional Notes
 ----------------
 Run the tests in the following order:  
-* `transparency_test.php` - will generate a json file of data giving counts, scores and percentages, etc for a data publisher against their IATI data files.  
-* `format_overview_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:  
+* `transparency_tests.php` - will generate a json file of data giving counts, scores and percentages, etc for a data publisher against their IATI data files.  
+* `format_overview_results_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:  
 * `format_all_results_v2.php` - generates 2 csv files /csv/Signatories.csv and /csv/Other.csv  
-* `transaprency_tests_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated  
+* `transparency_tests_additional.sh` - generates the results for the 'top 4' tests that are a bit more complicated  
 
 The final test is on the file updates based on the CKAN registry records.  
 First you need to create some meta data about the records on the CKAN registry.  
@@ -78,7 +78,8 @@ make sure you have two directories there:
 `tmp` - should be at `helpers/CKAN_meta/tmp`  
 `CKAN_data` - should be at `helpers/CKAN_meta/CKAN_data`  
 
-Run `php ckan_records_metadata.php` - this grabs CKAN data about each file on the Registry and stores it for us. We need this data so we can then fetch the file change history on each one.  
+Then, in the `CKAN_meta` directory, run  
+`ckan_records_metadata.php` - this grabs CKAN data about each file on the Registry and stores it for us. We need this data so we can then fetch the file change history on each one.  
 
 Next:  
 Back in the top level directory, make sure you have created a `./history` directory  
