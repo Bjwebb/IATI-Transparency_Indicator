@@ -65,6 +65,11 @@ Using `php_cli`  e.g.
 
 Functional Notes
 ----------------
+Saving data from previous tests.
+You could backup your previous raw XML data
+Create/move/backup your results,csv, and history directories and create new empty versions.
+(overwriting in these directories may leave old data in place that is not overwritten)
+
 Run the tests in the following order:  
 * `transparency_tests.php` - will generate a json file of data giving counts, scores and percentages, etc for a data publisher against their IATI data files.  
 * `format_overview_results_Sig_Other_All.php` - generates some total information for all providers grouped in Signatories/Other/All. This data is required by:  

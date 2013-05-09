@@ -64,8 +64,8 @@ $dir= "results/"; //file of json results - one for each publisher
 
 if (($handle = fopen("helpers/publisher_mapping.csv", "r")) !== FALSE) {
     while (($pub_data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-        $publishers[$pub_data[0]] = array("name"=>trim($pub_data[1],","),"group"=>$pub_data[2]);
-        $groups[$pub_data[0]] = $pub_data[2];
+        $publishers[$pub_data[1]] = array("name"=>trim($pub_data[2],","),"group"=>$pub_data[4]);
+        $groups[$pub_data[1]] = $pub_data[4];
     }
     fclose($handle);
 }
@@ -75,7 +75,7 @@ $group_types=array_unique($groups); // An array of all possible publisher types
 //OVERRIDE - I think the line above is now obscelete
 //Instead we only want 2 group types - Signatory and Other
 $group_types=array("Signatory","Other");
-$other = array("NGO", "NGO PLatform", "Government","Foundation"); //this specifies which classifications should be re-classified as 'Other'
+$other = array("NGO", "NGO PLatform", "Government","Foundation",""); //this specifies which classifications should be re-classified as 'Other'
 
 $data = array(); //We store our csv data in here for conversion later
 

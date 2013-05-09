@@ -15,13 +15,13 @@
 //Get a mapping of publishers and their real names
  if (($handle = fopen("helpers/publisher_mapping.csv", "r")) !== FALSE) {
     while (($pub_data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-        if (isset($pub_data[3]) && $pub_data[3] !=NULL) {
-          $use_this_name = $pub_data[3];
+        if (isset($pub_data[5]) && $pub_data[5] !=NULL) {
+          $use_this_name = $pub_data[5];
         } else {
-          $use_this_name = trim($pub_data[1],",");
+          $use_this_name = trim($pub_data[2],",");
         }
-        $publishers[$pub_data[0]] = array("name"=>$use_this_name,"group"=>$pub_data[2]);
-        $groups[$pub_data[0]] = $pub_data[2];
+        $publishers[$pub_data[1]] = array("name"=>$use_this_name,"group"=>$pub_data[4]);
+        $groups[$pub_data[1]] = $pub_data[4];
     }
     fclose($handle);
 }
