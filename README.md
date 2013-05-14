@@ -40,13 +40,13 @@ and so on.
 
 Settings
 --------
-Copy `example.settings.php` to `settings.php` and then edit the options.  
-Create your `results` directory to store your results in.  
+Copy `example.settings.php` to `settings.php` and then edit the options.   
 You will also need to create:  
-* `csv` directory - to save your results in.
+* `results` directory to store the results from the `transparency_tests.php` script .  
+* `csv` directory - to save your intermediate and final transparency results in.
 * `history` directory - to save partial results in.
 * `helpers/CKAN_meta/tmp` directory - to store some temporary data
-* `helpers/CKAN_meta/CKAN_data` directory - to store location information about files on the registry
+* `helpers/CKAN_meta/CKAN_data` directory - to store location information about publisher's files on the registry
 
 Check your 'helper' files are up to date
 ----------------------------------------
