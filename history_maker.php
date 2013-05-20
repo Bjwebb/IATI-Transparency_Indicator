@@ -11,6 +11,8 @@ $CKAN_data_directory = "helpers/CKAN_meta/CKAN_data";
  
 $year = date("Y");
 $files = scandir($CKAN_data_directory . "/" . $year . "/");
+sort($files); //We need to do this to make sure the newest directory is last in the array so the following array pop will work.
+//print_r($files);
 $most_recent_day_dir = array_pop($files);
 echo $most_recent_day_dir;
 
@@ -18,7 +20,7 @@ $most_recent_day_file = $CKAN_data_directory . "/" . $year . "/" . $most_recent_
 
 $most_recent_day_data = file_get_contents($most_recent_day_file);
 $most_recent_day_data = unserialize($most_recent_day_data);
-print_r($most_recent_day_data);
+print_r($most_recent_day_data); 
 
 $i=0;
 foreach ($most_recent_day_data as $ckan_file) {
