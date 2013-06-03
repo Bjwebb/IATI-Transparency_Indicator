@@ -67,6 +67,7 @@ unset($dirs[1]); //unset the .. value
 //$dirs = array("akfuk73");
 //$dirs = array("unitedstates");
 //$exclude  = array("art19");
+//$dirs = array("sida");
 $exclude  = array();
 foreach ($dirs as $corpus) {
     if (!in_array($corpus,$exclude)) {
@@ -149,7 +150,7 @@ foreach ($dirs as $corpus) {
             $good_ids = 0;
             $unique_ids = array_unique($data["identifiers"][$hierarchy]["good"]); //In case identifiers are used more than once
             $good_ids_values = array_count_values($data["identifiers"][$hierarchy]["good"]); 
-            /* Print duplicate iati-identifiers to the screen
+            /* Print duplicate iati-identifiers to the screen 
             foreach ($good_ids_values as $key=>$good_ids_value) {
               if ($good_ids_value > 1) {
                 echo $key . ':' . $good_ids_value . PHP_EOL;

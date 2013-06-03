@@ -107,3 +107,17 @@ Out dated formats:
 * `format_results.php` - will generate a csv file of results only, grouped into data publisher types (e.g. signatory, NGO's etc)
 
  
+Running for the second time.
+----------------------------
+Update or download the data (maybe back up the old data) (in `raw_IATI_xml_data`)
+Move and recreate fresh directories for
+/csv
+/history
+/results
+
+Download the history data earlier i.e. from line 79
+Run all steps up to `history_maker.php` (lines 79 - 91)
+
+Update the `publisher_mapping.csv` file.
+This is useful:
+http://bntest.vm.bytemark.co.uk/david/iati/demos/group.php
