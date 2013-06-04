@@ -213,10 +213,12 @@ foreach ($group_types as $type) {
  }
  
  
-  //$files = scandir($dir);
-    if ($handle = opendir($dir)) {
+    $files = scandir($dir);
+    sort($files);
+    //if ($handle = opendir($dir)) {
       /* This is the correct way to loop over the directory. */
-      while (false !== ($file = readdir($handle))) {
+      //while (false !== ($file = readdir($handle))) {
+      foreach ($files as $file) {
           if ($file != "." && $file != "..") { //ignore these system files
           
             $id = substr($file,0,-5); //file name without .json - this is also the ckan id and the array keys of $pub_data
@@ -294,7 +296,7 @@ foreach ($group_types as $type) {
             }
           }
         }
-      }
+      //}
   
   
   
