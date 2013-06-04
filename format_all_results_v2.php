@@ -212,7 +212,10 @@ foreach ($group_types as $type) {
     fclose($handle2);
  }
  
- 
+    //Using scandir allows us to save results in alphabetical order
+    //When we build the final csv files later in the process, spreadsheets will be ordered (in part)
+    //by the order in which these files are created (because readdir is used)
+    //It's slightly more convenient to do the ordering step here.
     $files = scandir($dir);
     sort($files);
     //if ($handle = opendir($dir)) {
@@ -231,6 +234,10 @@ foreach ($group_types as $type) {
               $json = file_get_contents($dir . $file);
               //echo $json; die;
               $json = json_decode($json);
+              //These 3 lines exclude Providers with zero activities from the final results
+              if ($json->activityCount == NULL) {
+                continue;
+              }
               //print_r($results); die;
               //$name = substr($file,0,-5);
               //$data["title"][] = $name;
