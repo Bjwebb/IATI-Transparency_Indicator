@@ -107,6 +107,7 @@ foreach ($group_types as $type) {
                 }
               }*/
               //Description Column
+              $data["totals"][] = 1; //used to help us store totals data in a database 
               $data["title"][] = "Description";
               //$i=1;
               foreach ($json['test'] as $key=>$value) {
@@ -200,7 +201,7 @@ foreach ($group_types as $type) {
         if  ($results_data[0] == "2.1" ) {
           //$data["totals"][] = $results_data[2];
           //$data["totals"][] = $results_data[17];
-          $data["totals"][] = "";
+          //$data["totals"][] = "";
           $data["totals"][] = $results_data[2];
           $data["totals"][] = $results_data[5];
           $data["totals"][] = $results_data[8];
@@ -289,8 +290,8 @@ foreach ($group_types as $type) {
               $data["test3.1.1"][] = $json->tests->{"3.1.1"}->percentage;
               $data["test3.1.2"][] = $json->tests->{"3.1.2"}->percentage;
               $data["test3.2"][] = $json->tests->{"3.2"}->percentage;
-              $data["test12"][] = "";
-              $data["test13"][] = "";
+              $data["test4.1"][] = "";
+              $data["test4.2"][] = "";
               $data["test5.1"][] = $json->tests->{"5.1"}->percentage;
               $data["test5.2"][] = $json->tests->{"5.2"}->percentage;
               $data["test5.3"][] = $json->tests->{"5.3"}->percentage;
