@@ -33,9 +33,9 @@ Get some data:
 You can fetch data from the IATI Registry (iatiregistry.org).   
 Store each publishers data in it's own directory, which is itself inside a 'data' directory.  
 e.g.  
-`raw_IATI_xml_data/`  
-`raw_IATI_xml_data/dfid`    
-`raw_IATI_xml_data/publisher_name`          
+`data/`  
+`data/dfid`    
+`data/publisher_name`          
 and so on.
 
 Settings

@@ -53,6 +53,14 @@ file_put_contents($output_file,$json);     //die;
 $dirs = scandir($dir); //all the folders in our directory holding the data
 unset($dirs[0]); // unset the . value
 unset($dirs[1]); //unset the .. value
+//If you've got your data in git repo from e.g. https://github.com/Bjwebb/IATI-Data-Snapshot 
+if ($dirs[2] == ".git") {
+  unset($dirs[2]);
+}
+if ($dirs[3] == "README.md") {
+  unset($dirs[3]);
+}
+  
 //print_r($dirs); die;
 /* To test a subset or single dataset, put an array of dataset here:*/
 //$dirs = array("acdi_cida");
@@ -774,12 +782,12 @@ function count_attributes($dir) { //sorry about the silly name. Legacy code!
                             }
                             if (isset($location->administrative)) {
                               if (isset($location->administrative->attributes()->adm1)) {
-                                $adm1 = string($location->administrative->attributes()->adm1);
+                                $adm1 = (string)$location->administrative->attributes()->adm1;
                               }
                               if (isset($location->administrative->attributes()->adm2)) {
-                                $adm2 = string($location->administrative->attributes()->adm2);
+                                $adm2 = (string)$location->administrative->attributes()->adm2;
                               }
-                              if ( (isset($adm1) && len($adm1) > 0) || (isset($adm2) && len($adm2) > 0) ) {
+                              if ( (isset($adm1) && strlen($adm1) > 0) || (isset($adm2) && strlen($adm2) > 0) ) {
                                 $activities_with_adminstrative[$hierarchy][] = (string)$activity->{'iati-identifier'};
                               }
                             }
