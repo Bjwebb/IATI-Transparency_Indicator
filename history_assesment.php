@@ -47,7 +47,9 @@ foreach ($groups as $group) {
             $message = $record["message"];
             $author = $record["author"];
             if ($author == "iati-archiver" && strstr($message,"update dataset")) {
-              $last_updated = time() - strtotime($timestamp);
+              //$last_updated = time() - strtotime($timestamp);
+              $last_updated = 1385952718 - strtotime($timestamp);
+              //print_r($record);
               $days[$file][] = round($last_updated/(60*60*24),0);
             }
           }

@@ -30,8 +30,8 @@ foreach ($most_recent_day_data as $ckan_file) {
   $i++;
   */
   $package_name = $ckan_file["name"];
-  $group = $ckan_file["group"];
-  $filename = $ckan_file["file"];
+  $group = strtok($package_name, '-');
+  $filename = $package_name;// $ckan_file["file"];
   if (!is_dir("./history/" . $group)) {
     mkdir("./history/" . $group);
   }

@@ -66,8 +66,8 @@ if (($handle = fopen("helpers/publisher_mapping.csv", "r")) !== FALSE) {
 }
 //print_r($publishers); die;
 //$group_types=array_unique($groups);
-$group_types=array("Signatory","Other");
-$other = array("NGO", "NGO PLatform", "Government","Foundation","");
+$group_types=array(/*"Signatory",*/"Other");
+//$other = array("NGO", "NGO Platform", "Government","Foundation","");
 
 foreach ($group_types as $type) {
   $data = array();
@@ -226,8 +226,8 @@ foreach ($group_types as $type) {
           if ($file != "." && $file != "..") { //ignore these system files
           
             $id = substr($file,0,-5); //file name without .json - this is also the ckan id and the array keys of $pub_data
-            $name = $publishers[$id]["name"]; //gives us the readable title
-            if ($groups[$id] == $type || ($type == "Other" && in_array($groups[$id],$other))) { // is this publisher in the group of puyblishers we are interested in
+            //$name = $publishers[$id]["name"]; //gives us the readable title
+            //if ($groups[$id] == $type || $type == "Other") { // is this publisher in the group of puyblishers we are interested in
               echo $file . PHP_EOL;
               
               
@@ -302,7 +302,7 @@ foreach ($group_types as $type) {
               $data["testGap"][] = "";
               $data["testHierarchy"][] = $json->hierarchy;
             }
-          }
+          //}
         }
       //}
   
