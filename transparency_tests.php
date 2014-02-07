@@ -330,7 +330,8 @@ foreach ($dirs as $corpus) {
               //$activities_with_one_recipient_country = array_unique($activies_in_country_lang);
             }
             $activies_in_country_lang_count = count($activies_in_country_lang);
-            $activities_with_one_recipient_country_count = count($activities_with_one_recipient_country); 
+            // FIXME this is misnamed, see definition above
+            $activities_with_one_recipient_country_count = count(array_unique($activities_with_one_recipient_country)); 
             //echo $activies_in_country_lang_count . PHP_EOL; //die;
             //echo $activities_with_one_recipient_country_count; die;
           } 
@@ -862,7 +863,6 @@ function count_attributes($dir) { //sorry about the silly name. Legacy code!
                           //Find recipient countries for this activity:
                           $recipient_countries = $activity->{"recipient-country"};
                           if (count($recipient_countries) == 1 ) { //Only test activities with one recipient country
-                            $activities_with_one_recipient_country[$hierarchy][] = (string)$activity->{'iati-identifier'}; //use this to get sum of testable activities
                             //echo (string)$activity->{'iati-identifier'};
                             foreach ($recipient_countries as $country) {
                               $code = (string)$country->attributes()->code;
@@ -901,9 +901,15 @@ function count_attributes($dir) { //sorry about the silly name. Legacy code!
                             //print_r($all_langs);
                             //Loop through the country languages and see if they are found on either the title or description
                             foreach ($country_langs as $lang) {
-                              if (in_array($lang,$all_langs) && $lang != $default_lang) {
-                                $activies_in_country_lang[$hierarchy][] = (string)$activity->{'iati-identifier'};
-                                //echo (string)$activity->{'iati-identifier'} .PHP_EOL;
+                              if ($lang != $default_lang && $lang != 'other') {
+                                if (in_array($lang,$all_langs)) {
+                                  $activies_in_country_lang[$hierarchy][] = (string)$activity->{'iati-identifier'};
+                                  //echo (string)$activity->{'iati-identifier'} .PHP_EOL;
+
+                                }
+                                // FIXME this variable is badly named now
+                                // Moved here to ensure that publishers are not penalised for having activities in countries with their default lang
+                                $activities_with_one_recipient_country[$hierarchy][] = (string)$activity->{'iati-identifier'}; //use this to get sum of testable activities
                               }
                             }
                           }
