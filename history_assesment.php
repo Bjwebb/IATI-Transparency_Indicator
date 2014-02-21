@@ -66,22 +66,22 @@ foreach ($groups as $group) {
           if ($updates < 30) {
            $number_of_updates_array[30]++;
           } 
-          if ($updates < 60) {
+          else if ($updates < 60) {
             $number_of_updates_array[60]++;
           } 
-          if ($updates < 90) {
+          else if ($updates < 90) {
             $number_of_updates_array[90]++;
           } 
           //if ($updates < 120) {
           //  $number_of_updates_array[120]++;
           //} 
-          if ($updates < 180) {
+          else if ($updates < 180) {
             $number_of_updates_array[180]++;
           } 
-          if ($updates < 370) {
+          else if ($updates < 370) {
             $number_of_updates_array[370]++;
           }
-          if ($updates > 370) {
+          else if ($updates > 370) {
             $number_of_updates_array["other"]++;
           }
           
